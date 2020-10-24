@@ -13,8 +13,6 @@ public class Program
                 keycount++;
                 if (keycount >= bkey.Length)
                     keycount = 0;
-				Console.WriteLine("Round Decrypt");
-				Console.WriteLine(System.Text.Encoding.UTF8.GetString(org));
             }
             return System.Text.Encoding.UTF8.GetString(org);
     }
@@ -29,8 +27,6 @@ public class Program
                 keycount++;
                 if (keycount >= bkey.Length)
                     keycount = 0;
-				Console.WriteLine("Round Encrypt");
-				Console.WriteLine(System.Text.Encoding.UTF8.GetString(bdata));
             }
 
             return System.Convert.ToBase64String(bdata);
