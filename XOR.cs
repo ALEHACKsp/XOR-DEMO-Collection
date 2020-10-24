@@ -2,10 +2,11 @@ using System;
 					
 public class Program
 {
-	private static String Decrypt(String data)
+	
+	private static String Decrypt(String data,String key)
     {
             byte[] org = System.Convert.FromBase64String(data);
-            byte[] bkey = System.Text.Encoding.UTF8.GetBytes("LOL");
+            byte[] bkey = System.Text.Encoding.UTF8.GetBytes(key);
             int keycount = 0;
             for (int i = 0; i< org.Length; i++)
             {
@@ -16,7 +17,7 @@ public class Program
             }
             return System.Text.Encoding.UTF8.GetString(org);
     }
-	private static String EncryptString(String data,String key = "LOL")
+	private static String EncryptString(String data,String key)
         {
             byte[] bdata = System.Text.Encoding.UTF8.GetBytes(data);
             byte[] bkey = System.Text.Encoding.UTF8.GetBytes(key);
@@ -34,8 +35,8 @@ public class Program
 	
 	public static void Main()
 	{
-		String data = EncryptString("Hello World");
+		String data = EncryptString("Hello World","LOL");
 		Console.WriteLine(data);
-		Console.WriteLine(Decrypt(data));
+		Console.WriteLine(Decrypt(data,"LOL"));
 	}
 }
